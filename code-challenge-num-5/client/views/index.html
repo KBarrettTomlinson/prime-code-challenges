@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Chi MEAN</title>
+
+    <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/client.min.js"></script>
+
+  </head>
+
+
+  <body>
+    <div id = 'wrapper' class = 'container'>
+      <!-- view 1  input field to receive message-->
+      <div id = 'inputDiv' class = 'row' ng-controller = 'InputController'>
+
+        <form id = 'inputForm' class="navbar-form navbar-left" role="search">
+
+          <div class="form-group">
+            <strong>Add a New Message</strong>
+            <input type="text" class="form-control" placeholder="Name" ng-model = 'newMessage.name'>
+            <input type="text" class="form-control" placeholder="Message" ng-model = 'newMessage.message'>
+          </div>
+
+            <button type="button" class="btn btn-default" ng-click = 'postData(newMessage)'>Submit</button>
+
+        </form>
+        <!-- ends input form -->
+
+      </div>
+      <!-- view 2 output to display previous messages -->
+      <div id = 'displayDiv' class = 'row' ng-controller = 'DisplayController'>
+        <div class = 'row messageDiv' ng-repeat = 'message in messageObject.messages'>
+
+          <p><b>{{message.name}}: </b>{{message.message}}</p>
+
+
+        </div>
+      </div>
+      <!-- ends displayDiv -->
+
+    </div>
+    <!-- ends wrapper div -->
+  </body>
+</html>
